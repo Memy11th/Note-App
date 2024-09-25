@@ -3,6 +3,7 @@ import { useFormik } from 'formik'
 import * as yup from 'yup'
 import formikValues from '../../interfaces/formikInterfaces'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 
 export default function Register() {
@@ -30,53 +31,60 @@ export default function Register() {
    })
    // functions section
    function handleSubmit(formikValues:formikValues){
-      console.log(formikValues)
+      return axios.post('https://note-sigma-black.vercel.app/api/v1/users/signUp',formikValues)
+      .then((Response)=>Response)
+      .catch((Error)=>Error)
    }
 
    return <>
-   <div className='container p-8 mx-auto'>
-      <form onSubmit={formik.handleSubmit} className="w-full text-center max-w-sm mx-auto bg-white p-8 rounded-md shadow-2xl">
-         <div className="mb-3">
-            <label className="d-block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+   <div className=' mx-auto w-75'>
+      <form onSubmit={formik.handleSubmit} className="w-100 mx-auto">
+         <div className=" mx-auto text-center  ">
+            <label className="d-block text-start w-100 " htmlFor="name">Name</label>
+            <input autoFocus onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-2 border-primary p-2 rounded "
                type="text" id="name" name="name" placeholder="Ahmed Muhammed" />
-               <p className="mt-2 text-sm text-red-600 dark:text-red-500">{formik.errors.name && formik.touched.name ? formik.errors.name : null }</p>
+               <p className="text-danger">{formik.errors.name && formik.touched.name ? formik.errors.name : null }</p>
          </div>
-         <div className="mb-3">
-            <label className="d-block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Phone number</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-               type="text" id="phone" name="phone" placeholder="01*********" />
-                           <p className="mt-2 text-sm text-red-600 dark:text-red-500">{formik.errors.phone && formik.touched.phone ? formik.errors.phone : null }</p>
-
-         </div>
-         <div className="mb-3">
-            <label className="d-block text-gray-700 text-sm font-bold mb-2" htmlFor="email">Email</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+         
+         <div className="mx-auto text-center">
+            <label className="d-block text-start" htmlFor="email">Email</label>
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
                type="email" id="email" name="email" placeholder="Ahmed@example.com" />  
-            <p className="mt-2 text-sm text-red-600 dark:text-red-500">{formik.errors.email && formik.touched.email ? formik.errors.email : null }</p>
+            <p className="text-danger">{formik.errors.email && formik.touched.email ? formik.errors.email : null }</p>
 
                
          </div>
-         <div className="mb-3">
-            <label className="d-block text-gray-700 text-sm font-bold mb-2" htmlFor="password">Password</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+         <div className="mx-auto text-center">
+            <label className="d-block text-start" htmlFor="password">Password</label>
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
                type="password" id="password" name="password" placeholder="********" />
-            <p className="mt-2 text-sm text-red-600 dark:text-red-500">{formik.errors.password && formik.touched.password ? formik.errors.password : null }</p>
+            <p className="text-danger">{formik.errors.password && formik.touched.password ? formik.errors.password : null }</p>
 
          </div>
-         <div className="mb-3">
-            <label className="d-block text-gray-700 text-sm font-bold mb-2" htmlFor="rePassword">Confirm Password</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-               type="password" id="rePassword" name="rePassword" placeholder="********" />
-   <p className="mt-2 text-sm text-red-600 dark:text-red-500">{formik.errors.rePassword && formik.touched.rePassword ? formik.errors.rePassword : null }</p>
+
+         <div className="mx-auto text-center">
+            <label className="d-block text-start" htmlFor="name">Phone number</label>
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
+               type="text" id="phone" name="phone" placeholder="01*********" />
+               <p className="text-danger">{formik.errors.phone && formik.touched.phone ? formik.errors.phone : null }</p>
 
          </div>
+         <div className="mx-auto text-center">
+            <label className="d-block text-start fw-semibold " htmlFor="age">Age</label>
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
+               type="age" id="age" name="age" placeholder="18" />
+   <p className="text-danger">{formik.errors.age && formik.touched.age ? formik.errors.age : null }</p>
+
+         </div>
+         <div className='mx-auto text-center'>
          <button
-            className="w-full bg-indigo-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-indigo-600 transition duration-300"
+            className="d-block mx-auto btn btn-primary w-100 "
             type="submit">
                Submit
                </button>
-               <Link className=' underline decoration-sky-500 ' to={'/login'}> <span className='text-sky-600'>Already have an account ? login</span></Link>
+               <Link className='' > <span className=''>Already have an account ? login</span></Link>
+         </div>
+        
          </form>
    </div>
 
