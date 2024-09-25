@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Navbar() {
   return <>
-  Ze2b
+  <nav className=' bg-black d-flex justify-content-center text-white  '>
+   <h2>Note App</h2>
+  </nav>
   </>
 }
