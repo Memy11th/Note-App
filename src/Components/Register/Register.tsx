@@ -1,4 +1,3 @@
-import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import formikValues from '../../interfaces/formikInterfaces'
@@ -30,10 +29,12 @@ export default function Register() {
 
    })
    // functions section
-   function handleSubmit(formikValues:formikValues){
-      return axios.post('https://note-sigma-black.vercel.app/api/v1/users/signUp',formikValues)
+ async  function handleSubmit(formikValues:formikValues){
+      const Response = await   axios.post('https://note-sigma-black.vercel.app/api/v1/users/signUp',formikValues)
       .then((Response)=>Response)
       .catch((Error)=>Error)
+
+      console.log(Response)
    }
 
    return <>
@@ -41,14 +42,14 @@ export default function Register() {
       <form onSubmit={formik.handleSubmit} className="w-100 mx-auto">
          <div className=" mx-auto text-center  ">
             <label className="d-block text-start w-100 " htmlFor="name">Name</label>
-            <input autoFocus onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-2 border-primary p-2 rounded "
+            <input autoFocus onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded "
                type="text" id="name" name="name" placeholder="Ahmed Muhammed" />
                <p className="text-danger">{formik.errors.name && formik.touched.name ? formik.errors.name : null }</p>
          </div>
          
          <div className="mx-auto text-center">
             <label className="d-block text-start" htmlFor="email">Email</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="email" id="email" name="email" placeholder="Ahmed@example.com" />  
             <p className="text-danger">{formik.errors.email && formik.touched.email ? formik.errors.email : null }</p>
 
@@ -56,7 +57,7 @@ export default function Register() {
          </div>
          <div className="mx-auto text-center">
             <label className="d-block text-start" htmlFor="password">Password</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="password" id="password" name="password" placeholder="********" />
             <p className="text-danger">{formik.errors.password && formik.touched.password ? formik.errors.password : null }</p>
 
@@ -64,14 +65,14 @@ export default function Register() {
 
          <div className="mx-auto text-center">
             <label className="d-block text-start" htmlFor="name">Phone number</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="text" id="phone" name="phone" placeholder="01*********" />
                <p className="text-danger">{formik.errors.phone && formik.touched.phone ? formik.errors.phone : null }</p>
 
          </div>
          <div className="mx-auto text-center">
             <label className="d-block text-start fw-semibold " htmlFor="age">Age</label>
-            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100"
+            <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="age" id="age" name="age" placeholder="18" />
    <p className="text-danger">{formik.errors.age && formik.touched.age ? formik.errors.age : null }</p>
 
@@ -80,9 +81,9 @@ export default function Register() {
          <button
             className="d-block mx-auto btn btn-primary w-100 "
             type="submit">
-               Submit
+               Register !
                </button>
-               <Link className='' > <span className=''>Already have an account ? login</span></Link>
+               <Link className='' to={'/login'} > <span className=''>Already have an account ? login</span></Link>
          </div>
         
          </form>
