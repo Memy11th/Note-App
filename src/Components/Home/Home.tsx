@@ -1,8 +1,9 @@
+import Note from "../Note/Note";
 
 export default function Home() {
-  return (
-    <div>
-      Hellooo
-    </div>
-  )
+  return <>
+  <Note/>
+  </>
+      
+  
 }

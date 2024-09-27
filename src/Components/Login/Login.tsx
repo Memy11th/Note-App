@@ -62,11 +62,11 @@ export default function Login() {
          </div>
          <div className='mx-auto text-center'>
          <button
-            className="d-block mx-auto btn btn-primary w-100 "
+            className="d-block mx-auto btn bg-black text-white w-100 "
             type="submit">
                Login
                </button>
-               <Link className='' to={'/register'} > <span className=''>Don't have an account yet ? REGISTER NOW</span></Link>
+               <Link className='text-black  ' to={'/register'} > <span className=''>Don't have an account yet ? REGISTER NOW</span></Link>
          </div>
         
          </form>

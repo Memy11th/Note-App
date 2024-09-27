@@ -40,15 +40,15 @@ export default function Register() {
    return <>
    <div className=' mx-auto w-75'>
       <form onSubmit={formik.handleSubmit} className="w-100 mx-auto">
-         <div className=" mx-auto text-center  ">
+         <div className=" mx-auto text-center fw-semibold ">
             <label className="d-block text-start w-100 " htmlFor="name">Name</label>
-            <input autoFocus onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded "
+            <input  onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded "
                type="text" id="name" name="name" placeholder="Ahmed Muhammed" />
                <p className="text-danger">{formik.errors.name && formik.touched.name ? formik.errors.name : null }</p>
          </div>
          
          <div className="mx-auto text-center">
-            <label className="d-block text-start" htmlFor="email">Email</label>
+            <label className="d-block text-start fw-semibold" htmlFor="email">Email</label>
             <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="email" id="email" name="email" placeholder="Ahmed@example.com" />  
             <p className="text-danger">{formik.errors.email && formik.touched.email ? formik.errors.email : null }</p>
@@ -56,7 +56,7 @@ export default function Register() {
                
          </div>
          <div className="mx-auto text-center">
-            <label className="d-block text-start" htmlFor="password">Password</label>
+            <label className="d-block text-start fw-semibold" htmlFor="password">Password</label>
             <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="password" id="password" name="password" placeholder="********" />
             <p className="text-danger">{formik.errors.password && formik.touched.password ? formik.errors.password : null }</p>
@@ -64,7 +64,7 @@ export default function Register() {
          </div>
 
          <div className="mx-auto text-center">
-            <label className="d-block text-start" htmlFor="name">Phone number</label>
+            <label className="d-block text-start fw-semibold" htmlFor="name">Phone number</label>
             <input onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-100 border-1 border-secondary p-2 rounded"
                type="text" id="phone" name="phone" placeholder="01*********" />
                <p className="text-danger">{formik.errors.phone && formik.touched.phone ? formik.errors.phone : null }</p>
@@ -79,11 +79,11 @@ export default function Register() {
          </div>
          <div className='mx-auto text-center'>
          <button
-            className="d-block mx-auto btn btn-primary w-100 "
+            className="d-block mx-auto btn bg-black text-white w-100 "
             type="submit">
                Register !
                </button>
-               <Link className='' to={'/login'} > <span className=''>Already have an account ? login</span></Link>
+               <Link className=' text-black ' to={'/login'} > <span className=''>Already have an account ? login</span></Link>
          </div>
         
          </form>
