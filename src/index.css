@@ -1,0 +1,26 @@
+.floating-button {
+    position: fixed;
+    background-color: black;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    border: 1px solid black;
+    /*Ensureitstaysontopofotherelements*/width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: ;
+    -moz-border-radius:;
+    -ms-border-radius:;
+    -o-border-radius:;
+}
+  
+  .floating-button:hover {
+    background-color: rgb(17, 17, 17); /* You can customize this hover effect */
+  }
+
+ 

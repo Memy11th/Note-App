@@ -4,10 +4,12 @@ import * as yup from 'yup'
 import loginInterfaceForFormik from '../../interfaces/formikLogInInterface'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { useRecoilState } from 'recoil';
+import { userTokenState } from '../../Atoms/userAtom';
 
 export default function Login() {
    
-
+const [userToken,setUserToken] = useRecoilState(userTokenState)
 
    interface loginResponse{
       msg:string;
@@ -19,6 +21,7 @@ export default function Login() {
       .then((Response)=>Response)
       .catch((Error)=>Error)
       localStorage.setItem('UserTokenNotes',Response?.data?.token)
+      setUserToken(Response?.data?.token)
    }
    // form validation and values section
 
