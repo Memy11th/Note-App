@@ -1,5 +1,5 @@
 import { Container, Row, Col, Nav } from 'react-bootstrap';
-import { NavLink, Outlet } from 'react-router-dom';
+import {  Outlet } from 'react-router-dom';
 
 export default function Sidebar() {
     const sidebarWidth = 250; // Adjust the sidebar width to match your sidebar

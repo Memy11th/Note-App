@@ -3,7 +3,6 @@ import Note from "../Note/Note";
 import { useRecoilState } from "recoil";
 import { allNotes, userTokenState } from "../../Atoms/userAtom";
 import { useEffect } from "react";
-import { object } from "yup";
 
 export default function Home() {
 const [allUsersNotes,setAllUserNotes]=useRecoilState(allNotes)
